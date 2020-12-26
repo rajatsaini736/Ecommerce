@@ -1,0 +1,47 @@
+<div class="container my-2">
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-lg-12" *ngIf="errorMessage">
+                <div class="alert alert-danger">
+                    {{errorMessage}}
+                </div>
+            </div>
+            <div class="col-md-6 d-flex mx-auto flex-column">
+                <form #myform="ngForm">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input 
+                            type="email" 
+                            class="form-control"
+                            id="email"
+                            [(ngModel)]="email"
+                            name="email"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" 
+                            class="form-control"
+                            id="password"
+                            [(ngModel)]="password"
+                            name="password"
+                            required>
+                    </div>
+                    <div class="d-flex flex-column align-items-center justify-content-around">
+                        <button class="btn btn-primary btn-sm btn-block" (click)="login(myform)" [disabled]="myform.invalid ">
+                            <span><i class="fa fa-sign-in"></i> Login </span>
+                        </button>
+                        <hr>
+                        <h4 class="text-uppercase"><strong>Login Using</strong></h4>
+
+                        <button (click)="signInWithGoogle()" class="btn btn-danger btn-sm btn-block mt-2">
+                            <span><i class="fa fa-google"></i> Google </span>
+                        </button>
+                        <h6 class="text-uppercase mt-2">or</h6>
+                        <a routerLink="/register">Create a new account</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

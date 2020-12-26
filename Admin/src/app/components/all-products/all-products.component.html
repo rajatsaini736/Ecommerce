@@ -1,0 +1,72 @@
+<div class="content-wrapper">
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-6">
+          <h1>All Products</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+          <div class="alert alert-danger" [hidden]="!hasError">
+            {{errorMessage}}
+          </div>
+          <div class="alert alert-success" [hidden]="!success">
+            {{errorMessage}}
+          </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title">DataTable with minimal features & hover style</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table id="example2" class="table table-bordered table-hover">
+                      <thead class="bg-dark text-light">
+                      <tr>
+                        <th width="5%">Id</th>
+                        <th width="20%">Name</th>
+                        <th>Image</th>
+                        <th width="20%">Description</th>
+                        <th>Price</th>
+                        <th>Category</th>
+                        <th>Quantity</th>
+                        <th>Operation</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr *ngFor="let product of prods">
+                        <td>{{product.id}}</td>
+                        <td>{{product.name}}</td>
+                        <td><img [src]="product.image" alt="{{product.name}}" ></td>
+                        <td><p class="text-wrap" style="max-width: 100%;">{{product.description}}</p></td>
+                        <td>{{product.price | currency: 'INR'}}</td>
+                        <td>{{product.category}}</td>
+                        <td>{{product.quantity}}</td>
+                        <td><button class="btn btn-outline-danger btn-sm btn-block" (click)="deleteProduct(product.id)">x</button></td>
+                      </tr>
+                      
+                      </tbody>
+                      <tfoot>
+                      <tr>
+                        <th>Rendering engine</th>
+                        <th>Browser</th>
+                        <th>Platform(s)</th>
+                        <th>Engine version</th>
+                        <th>CSS grade</th>
+                      </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+              </div>
+        </div>
+    </div>
+</div>
+</div>

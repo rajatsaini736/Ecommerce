@@ -1,0 +1,52 @@
+<div class="content-wrapper">
+    <div class="content-header">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-6">
+              <h1>All Categories</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="alert alert-danger" [hidden] = '!hasError'>
+                    Error Message
+                </div>
+                <div class="alert alert-success" [hidden] = '!success'>
+                    Success Message
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Data Table for Categories</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <thead class="bg-dark text-white">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th width="40%">Title</th>
+                                        <th width="45%">Description</th>
+                                        <th>Operation</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let category of cats">
+                                        <td>{{category.id}}</td>
+                                        <td>{{category.title}}</td>
+                                        <td><p class="text-wrap" style="max-width: 100%;">{{category.description}}</p></td>
+                                        <td class="text-center"><button class="btn btn-outline-danger btn-sm " (click)="deleteCategory(category.id)">X</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

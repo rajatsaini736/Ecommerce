@@ -1,0 +1,76 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "3.0.0",
+        "title": "My User Project CRUD",
+        "description": "My User Project Application API"
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/users": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get all users in system",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Users"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "User": {
+            "required": [
+                "name",
+                "_id",
+                "companies"
+            ],
+            "properties": {
+                "_id": {
+                    "type": "integer",
+                    "uniqueItems": true
+                },
+                "isPublic": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "books": {
+        "type": "array",
+        "items": {
+        "type": "object",
+        "properties": {
+        "name": {
+        "type": "string"
+        },
+        "amount": {
+        "type": "number"
+        }
+        }
+        }
+        },
+        "companies": {
+        "type": "array",
+        "items": {
+        "type": "string"
+        }
+        }
+        }
+        },
+        "Users": {
+        "type": "array",
+        "$ref": "#/definitions/User"
+        }
+        }
+}

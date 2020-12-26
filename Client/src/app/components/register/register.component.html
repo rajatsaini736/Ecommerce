@@ -1,0 +1,77 @@
+    <div class="container my-2">
+    <div class="jumbotron row">
+        <div class="col-lg-12">
+            <div class="alert alert-danger" *ngIf="errorMessage">
+                <div class="" *ngFor="let error of errorMessage">
+                    {{error.msg}}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 d-flex mx-auto flex-column">
+            <form #myform = "ngForm">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email"
+                        class="form-control"
+                        id="email"
+                        [(ngModel)]="email"
+                        name="email"
+                        #uemail="ngModel"
+                        required>
+                    <div class="alert alert-danger" *ngIf="uemail.invalid && (uemail.dirty || uemail.touched)">
+                        <div class="" *ngIf="uemail.errors.required">
+                            Email required.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" 
+                        class="form-control"
+                        id="password"
+                        name="password"
+                        [(ngModel)]="password"
+                        #upassword = "ngModel"
+                        required>
+                    <div class="alert alert-danger" *ngIf="upassword.invalid && (upassword.dirty || upassword.touched)">
+                        <div class="" *ngIf="upassword.errors.required">
+                            Password required.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="fname">First Name</label>
+                    <input type="text" 
+                        class="form-control"
+                        id="fname"
+                        name="fname"
+                        [(ngModel)]="fname"
+                        #ufname = "ngModel"
+                        required>
+                    <div class="alert alert-danger" *ngIf="ufname.invalid && (ufname.dirty || ufname.touched)">
+                        <div class="" *ngIf="ufname.errors.required">
+                            First name required.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="lname">Last Name</label>
+                    <input type="text" 
+                        class="form-control"
+                        id="lname"
+                        name="lname"
+                        [(ngModel)]="lname"
+                        #ulname = "ngModel"
+                        required>
+                    <div class="alert alert-danger" *ngIf="ulname.invalid && (ulname.dirty || ulname.touched)">
+                        <div class="" *ngIf="ulname.errors.required">
+                            Last name required.
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-success btn-sm btn-block" (click)="register(myform)" [disabled]="myform.invalid">
+                    <i class="fa fa-user-plus"></i> Register</button>
+            </form>
+        </div>
+    </div>
+</div>

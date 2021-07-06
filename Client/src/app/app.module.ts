@@ -23,8 +23,6 @@ import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-logi
 import { GoogleLoginProvider, FacebookLoginProvider, AmazonLoginProvider,} from 'angularx-social-login';
 import { RegisterComponent } from './components/register/register.component';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,

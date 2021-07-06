@@ -15,7 +15,7 @@ declare let $: any;
 export class ProductComponent implements OnInit, AfterViewInit {
 
   productId: number;
-  product: ProductModelServer;
+  product: ProductModelServer;3
   thumbImages: any[] = [];
 
   @ViewChild('quantity') quantityInput;

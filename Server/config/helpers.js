@@ -46,6 +46,7 @@ let database = conn.emit(false, 'angecommerce');
         return res.status(401).send("No authorization header found");
       }
     },
+
     hasAuthFields: (req, res, next) => {
       let errors = [];
 
@@ -65,27 +66,28 @@ let database = conn.emit(false, 'angecommerce');
       } else {
           return res.json({errors: 'Missing email and password fields'});
       }
-  },
-  isPasswordAndUserMatch: async (req, res, next) => {
-    const myPlaintextPassword = req.body.password;
-    const myEmail = req.body.email;          
-          
-    const user = await database.table('users').filter({$or:[{ email : myEmail },{ username : myEmail }]}).get();
-    if (user) {
-        const match = await bcrypt.compare(myPlaintextPassword, user.password);
-        if (match) {
-            req.username = user.username;
-            req.email = user.email;
-            req.userid = user.id;
-            req.fname = user.fname;
-            req.lname = user.lname;
-            next();
+    },
+
+    isPasswordAndUserMatch: async (req, res, next) => {
+        const myPlaintextPassword = req.body.password;
+        const myEmail = req.body.email;          
+            
+        const user = await database.table('users').filter({$or:[{ email : myEmail },{ username : myEmail }]}).get();
+        if (user) {
+            const match = await bcrypt.compare(myPlaintextPassword, user.password);
+            if (match) {
+                req.username = user.username;
+                req.email = user.email;
+                req.userid = user.id;
+                req.fname = user.fname;
+                req.lname = user.lname;
+                next();
+            } else {
+                res.json({ errors : "Email or password incorrect" });
+            }
+            
         } else {
-            res.json({ errors : "Email or password incorrect" });
+            res.json({ errors : "Email incorrect"});
         }
-        
-    } else {
-        res.json({ errors : "Email incorrect"});
     }
-}
 };

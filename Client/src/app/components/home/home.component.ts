@@ -30,6 +30,11 @@ export class HomeComponent implements OnInit {
       .subscribe((prods: ServerResponse) => {
         this.products = prods.products;
       });
+
+    this.productService.getAllProducts()
+      .subscribe((prods: ServerResponse) => {
+        console.log(prods);
+      })
   }
 
   selectProduct(productId: number){

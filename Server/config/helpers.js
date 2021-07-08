@@ -17,7 +17,7 @@ let conn = new MySqli({
     host: 'localhost', 
     post: 3306, 
     user: 'root', 
-    passwd: 'rajatsaini', 
+    passwd: '', 
     charset: '', 
     db: 'angecommerce'  
   }) 

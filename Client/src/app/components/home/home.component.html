@@ -86,7 +86,7 @@
 			<!-- container -->
 			<div class="container">
 				<!-- row -->
-				<div class="row">
+				<!-- <div class="row"> -->
 
 					<!-- section title -->
 					<div class="col-md-12">
@@ -103,7 +103,7 @@
 
 								<div class="col-6 col-sm-6 col-md-3" *ngFor= "let p of products">
 									<div class="card my-2"> 
-										<img [src]="p.image" alt="{{p.name}}" width="200px" class="card-img-top" style="cursor: pointer" (click)="selectProduct(p.id)">
+										<img [src]="p.image" alt="{{p.name}}" width="100px" class="card-img-top" style="cursor: pointer" (click)="selectProduct(p.id)">
 										<div class="card-header">
 											<div class="card-title">
 												<p class="text-center">{{p.name | titlecase }}</p>
@@ -152,7 +152,7 @@
 						</div>
 		
 					<!-- Products tab & slick -->
-				</div>
+				<!-- </div> -->
 				<!-- /row -->
 			</div>
 			<!-- /container -->

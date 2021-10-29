@@ -46,6 +46,7 @@ const ordersRoute = require('./routes/orders');
 const authRoute = require('./routes/auth');
 const categoryRoute = require('./routes/category');
 const homeRoute = require('./routes/home');
+const uploadRoute = require('./routes/upload-drive');
 const { truncate } = require('fs');
 
 app.use('/api', homeRoute);
@@ -54,6 +55,8 @@ app.use('/api/categories', categoryRoute);
 app.use('/api/users', usersRoute);
 app.use('/api/orders', ordersRoute);
 app.use('/api/auth', authRoute);
+app.use('/api/upload', uploadRoute);
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

@@ -1,0 +1,27 @@
+<div class="content-wrapper">
+  <div class="content-wrapper">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-6">
+          <h1>All Products</h1>
+        </div>
+      </div>
+      <div class="row">
+        <h5>Upload Your Doc HERE</h5>
+        <form enctype="multipart/form-data">
+          <input type="file" (change)="onChange($event)">
+          <!-- <button id="upload-widget">upload</button> -->
+        </form>
+        <button (click)="uploadFile()">upload</button>
+      </div>
+      <div class="row">
+        <h5>Upload Your Doc Link HERE</h5>
+        <form (ngSubmit)="uploadLink()">
+          <input type="text" (change)="onChangeLink($event)">
+          <!-- <button id="upload-widget">upload</button> -->
+          <button>upload</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

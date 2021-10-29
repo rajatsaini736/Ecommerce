@@ -15,7 +15,8 @@ export class ProductService {
   }
 
   getAllProducts():Observable<ServerResponse>{
-    return this.http.get<ServerResponse>(`${this.SERVER_URL}/products`);
+    return this.http.get<ServerResponse>("https://jsonplaceholder.typicode.com/postss");
+    // return this.http.get<ServerResponse>(`${this.SERVER_URL}/products`);
   }  
 
   // getAllProductsWithLimit(numberOfResults?: number):Observable<ServerResponse>{

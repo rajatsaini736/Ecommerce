@@ -13,6 +13,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { AllCategoriesComponent } from './components/all-categories/all-categories.component';
 import { AddNewCategoryComponent } from './components/add-new-category/add-new-category.component';
 import { AddNewProductComponent } from './components/add-new-product/add-new-product.component';
+import { UploadFileComponent } from './components/upload-file/upload-file.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AddNewProductComponent } from './components/add-new-product/add-new-pro
     SidebarComponent,
     AllCategoriesComponent,
     AddNewCategoryComponent,
-    AddNewProductComponent
+    AddNewProductComponent,
+    UploadFileComponent
   ],
   imports: [
     BrowserModule,
